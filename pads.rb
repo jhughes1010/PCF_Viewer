@@ -61,7 +61,7 @@ end
 
 Text.new(
 	die.mask,
-	x: die.x_offset, y: die.y_offset,
+	x: die.x_offset - 2*60, y: die.y_offset - 30,
 	#font: 'vera.ttf',
 	#style: 'bold',
 	size: 60,

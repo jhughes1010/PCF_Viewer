@@ -21,24 +21,22 @@ class PCF
 			col = line.split(",")
 			if col[0] == "MASK"
 				@mask = col[1]
-				puts @mask 
 			end
 						if col[0] == "XPITCH"
 				@x_pitch = col[1].to_f * 1000
-				puts @x_pitch
 			end
 						if col[0] == "YPITCH"
 				@y_pitch = col[1].to_f * 1000
-				puts @y_pitch
 			end
 						if col[0].strip == "PAD"
 				@pad_count+=1
 				@pads << Pad.new(col)
 			end
 		end
-				if((@x_pitch >1300)||(@y_pitch >900))
+		if((@x_pitch >1300)||(@y_pitch >900))
 			max_dimension = [@x_pitch ,@y_pitch ].max
 			puts "Maximum: #{max_dimension}"
 			@scale = @x_canvas/(max_dimension+100)
 		end
-			end
+	end
+end
