@@ -24,6 +24,8 @@ puts "Scale: #{die.scale}"
 puts "Pad Count: #{die.pad_count}"
 puts "X Street: #{die.x_street}"
 puts "Y Street: #{die.y_street}"
+puts "X Pitch: #{die.x_pitch}"
+puts "Y Pitch: #{die.y_pitch}"
 
 set title: die.mask
 set width: die.x_canvas, height: die.y_canvas

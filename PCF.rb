@@ -36,9 +36,9 @@ class PCF
 				@pads << Pad.new(col)
 			end
 						if line.include? "STREET"
-						puts line
+						#puts line
             col = line.split(" ")
-            puts col
+            #puts col
 				@x_street = col[5].to_f
 				@y_street = col[7].to_f
 			end
