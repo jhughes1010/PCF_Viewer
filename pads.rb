@@ -3,13 +3,27 @@ require_relative 'PCF'
 require_relative 'pad'
 require_relative 'pitch'
 
+
+#show directory
+index = 0
+home = "../PCF Files/"
+dir = Dir.entries( home ).select{ |f| File.file? File.join( home, f ) }
+dir.each do |d|
+  puts "#{index}: #{d}"
+  index +=1
+end
+puts "Enter PCF to view"
+entry = gets.to_i
+
+
 #open the PCF file
-pads = File.open("PCF_AT58961_D_probe_v1p2.csv")
+pads = File.open(home+dir[entry])
 #parse PCF for critical data and scale for graphical display
 die = PCF.new(pads)
 puts "Scale: #{die.scale}"
 puts "Pad Count: #{die.pad_count}"
-
+puts "X Street: #{die.x_street}"
+puts "Y Street: #{die.y_street}"
 
 set title: die.mask
 set width: die.x_canvas, height: die.y_canvas
@@ -24,8 +38,8 @@ Rectangle.new(
 
 #die
 Rectangle.new(
-	x: die.x_offset - (die.x_pitch/2 -40 )*die.scale, y: die.y_offset - (die.y_pitch/2 -30)*die.scale,
-	width: (die.x_pitch-80)*die.scale , height: (die.y_pitch-60)*die.scale,
+	x: die.x_offset - (die.x_pitch/2 - die.x_street/2 )*die.scale, y: die.y_offset - (die.y_pitch/2 - die.y_street/2)*die.scale,
+	width: (die.x_pitch-die.x_street)*die.scale , height: (die.y_pitch-die.y_street)*die.scale,
 	color: 'gray',
 	z: 25
 )
