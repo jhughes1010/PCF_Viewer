@@ -1,7 +1,12 @@
+#PCF viewer for bond and probe-needle coordinates
+#A utility to quickly get a visual perspective on accuracy for probe card design
+#James Hughes - 2021
+#version 1.0
+
+
 require 'ruby2d'
 require_relative 'PCF'
 require_relative 'pad'
-require_relative 'pitch'
 
 
 #show directory
