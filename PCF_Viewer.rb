@@ -11,7 +11,7 @@ require_relative 'pad'
 
 #show directory
 index = 0
-home = "../PCF Files/"
+home = "PCF Files/"
 dir = Dir.entries( home ).select{ |f| File.file? File.join( home, f ) }
 dir.each do |d|
   puts "#{index}: #{d}"
