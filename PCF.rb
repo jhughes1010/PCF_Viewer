@@ -47,7 +47,11 @@ class PCF
 		if((@x_pitch >1300)||(@y_pitch >900))
 			max_dimension = [@x_pitch ,@y_pitch ].max
 			puts "Maximum: #{max_dimension}"
+			if (max_dimension == x_pitch)
 			@scale = @x_canvas/(max_dimension+100)
+			else
+			  @scale = @y_canvas/(max_dimension+100)
+			end
 		end
 	end
 end

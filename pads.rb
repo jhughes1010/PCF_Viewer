@@ -27,7 +27,7 @@ puts "Y Street: #{die.y_street}"
 puts "X Pitch: #{die.x_pitch}"
 puts "Y Pitch: #{die.y_pitch}"
 
-set title: die.mask
+set title: dir[entry]
 set width: die.x_canvas, height: die.y_canvas
 
 #step
