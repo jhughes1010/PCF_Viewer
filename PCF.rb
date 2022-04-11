@@ -10,9 +10,9 @@ class PCF
 		def initialize(file_data)
 		@file = file_data
 		@mask = "Not Found"
-		@x_canvas = 1500
+		@x_canvas = 1000
 		@y_canvas = 1000
-		@x_offset = 750
+		@x_offset = 500
 		@y_offset = 500
 		@x_street = 10
 		@y_street = 10
@@ -44,14 +44,17 @@ class PCF
 			end
 						
 		end
+		x_scale=0.000
+		y_scale=0.000
 		if((@x_pitch >1300)||(@y_pitch >900))
 			max_dimension = [@x_pitch ,@y_pitch ].max
 			puts "Maximum: #{max_dimension}"
-			if (max_dimension == x_pitch)
-			@scale = @x_canvas/(max_dimension+100)
-			else
-			  @scale = @y_canvas/(max_dimension+100)
-			end
+			#if (max_dimension == x_pitch)
+			x_scale = @x_canvas/(@x_pitch+300)
+			#else
+			  y_scale = @y_canvas/(@y_pitch+300)
+			#end
+			@scale = [x_scale ,y_scale ].min
 		end
 	end
 end
