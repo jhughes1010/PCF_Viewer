@@ -77,12 +77,11 @@ die.pads.each do |p|
 		rotate: 0,
 		z: 40
 	)
-
 end
 
 Text.new(
 	die.mask,
-	x: die.x_offset - 2*60, y: die.y_offset - 30,
+	x: die.x_offset - 90, y: die.y_offset + 30,
 	#font: 'vera.ttf',
 	#style: 'bold',
 	size: 60,
@@ -90,5 +89,14 @@ Text.new(
 	rotate: 0,
 	z: 40
 )
+	
+#Center of die marker
+Circle.new(
+		x: die.x_offset, y: die.y_offset,
+		radius: 3,
+		sectors: 32,
+		color: 'orange',
+		z: 40
+	)
 
 show
